@@ -20,10 +20,12 @@ There is a chance you might face a type error with Draft.js Editor when running 
 
 `ERROR: Unexpected 'Editor cannot be used as a JSX component'`
 
-If you face this error make the changes according to this code snippet 
+If you face this error make the changes according to this code snippet
+
 ```
 import {
   Editor as _Editor, // replace this line
+  EditorProps, // add this line
   EditorState,
   RichUtils,
   DraftModel,
@@ -39,4 +41,3 @@ import "./styles.css";
 // Type enforcing becaus of some random type error with Draft.js
 const Editor = _Editor as unknown as React.FC<EditorProps>; // Add this line
 ```
-

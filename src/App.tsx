@@ -1,5 +1,6 @@
 import {
-  Editor,
+  Editor as _Editor,
+  EditorProps,
   EditorState,
   RichUtils,
   DraftModel,
@@ -10,6 +11,9 @@ import {
 } from "draft-js";
 import { useState } from "react";
 import "./styles.css";
+
+// Type enforcing becaus of some random type error with Draft.js
+const Editor = _Editor as unknown as React.FC<EditorProps>; // Add this line
 
 export default function App() {
   const [editorState, setEditorState] = useState(() => {
